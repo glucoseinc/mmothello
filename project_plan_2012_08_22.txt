@@ -1,4 +1,4 @@
-Current formation:
+    dCurrent formation:
 (all pages extends base.html).
 [unimplemeted page]
 
@@ -22,11 +22,20 @@ Prioritized TODO-list:
     [X] comment and clean code.
     [ ] Fix graphical feed back (change courser hovers and stuff)
     [ ] implement an invite friends-feature.
-    [ ] Change show_game.html to show_game_list.html that contains links to different games.
     [ ] implement a challenge friend-feature.
     [ ] Change Score Board to Team Management
     [ ] add some sort of marking when you have already voted (which one did you vote for?).
+    [ ] Internet Explorer/Safari Compability:
+        - change all session dependencies to database dependencies (performance issues)
+        - OR find solution to why session is deleted in I.E and Safari.
     [ ] fix graphical issues.
+    
+
+Extra features
+
+    [ ] A previous moves list.
+    [ ] Be able to step through old moves.    
+    [ ] Change show_game.html to show_game_list.html that contains links to different games.
     [ ] implement a fever mode (right now there is a bar that fills up only).
         - Different fever levels (at 50, 70, 80 and 90 %).
         - Increase chance of picking 2nd vote
@@ -36,11 +45,4 @@ Prioritized TODO-list:
     [ ] add high scores
         - right now each player recieves points based on how syncronized they vote.
     [ ] add achievements (to keep players engaged).
-    [ ] Internet Explorer/Safari Compability:
-        - change all session dependencies to database dependencies (performance issues)
-        - OR find solution to why session is deleted in I.E and Safari.
-
-Extra features
-
-    [ ] A previous moves list.
-    [ ] Be able to step through old moves.    
+    
