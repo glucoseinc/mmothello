@@ -76,6 +76,8 @@ FEVER_LEVEL_4 = 90
 
 DEFAULT_VOTE_TIMER = 1200
 
+# Other variables.
+
 timers = {}
 
 
@@ -181,34 +183,37 @@ class Voted(db.Model):
     def __repr__(self):
         return '<Voted user %r>' % str(self.user_id) + ' board ' + str(self.board_id)
 
-class Guilds(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    guild_name = db.Column(db.String(20))
-    guild_master_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    score = db.Column(db.Integer)
+        
+# class Guilds(db.Model):
+    # id = db.Column(db.Integer, primary_key=True)
+    # guild_name = db.Column(db.String(20))
+    # guild_master_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # score = db.Column(db.Integer)
 
-    def __init__(self, guild_name, guild_master_id):
-        self.guild_name = guild_name
-        self.guild_master_id = guild_master_id
-        score = 800;
+    # def __init__(self, guild_name, guild_master_id):
+        # self.guild_name = guild_name
+        # self.guild_master_id = guild_master_id
+        # score = 800;
 
-    def __repr__(self):
-        return '<Guilds guild: %r>' % self.guild_name + " GM: " + str(self.guild_master_id) 
+    # def __repr__(self):
+        # return '<Guilds guild: %r>' % self.guild_name + " GM: " + str(self.guild_master_id) 
 
-class Guildmembers(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    guild = db.Column(db.Integer, db.ForeignKey('guilds.id'))
-    member = db.Column(db.Integer, db.ForeignKey('users.id'))
-    protector = db.Column(db.Boolean(False))
+# class Guildmembers(db.Model):
+    # id = db.Column(db.Integer, primary_key=True)
+    # guild = db.Column(db.Integer, db.ForeignKey('guilds.id'))
+    # member = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # protector = db.Column(db.Boolean(False))
 
-    def __init__(self, guild, member, protector=""):
-        self.guild = guild
-        self.member = member
-        if not protector == "":
-            self.protector = protector
+    # def __init__(self, guild, member, protector=""):
+        # self.guild = guild
+        # self.member = member
+        # if not protector == "":
+            # self.protector = protector
 
-    def __repr__(self):
-        return '<Guildmembers guild: %r>' % self.guild + " user: " + str(self.member)
+    # def __repr__(self):
+        # return '<Guildmembers guild: %r>' % self.guild + " user: " + str(self.member)
+        
+        
 class Testusers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     test_user_id = db.Column(db.String(50))
@@ -248,13 +253,6 @@ color_O = 2 # O's color!
 class VoteTimer(threading.Thread):
     def __init__(self,board_id,turn_duration = DEFAULT_VOTE_TIMER):
         
-        # self.duration = 1 # hour
-        # print "theoretical, timer, 1 hour delay from now on"
-        # show_string =  str(datetime.datetime.now().minute)
-        # show_string = show_string + " */" + str(self.duration) 
-        # show_string = show_string +  " * * *"
-        # print show_string
-        # self.cron_tab = CronTab('*/2 * * * *')
         self.time_left = turn_duration
         self.turn_duration = turn_duration
         self.board_id = board_id
@@ -303,16 +301,7 @@ class VoteTimer(threading.Thread):
 # **********************************************
 
 
-
-# **********************
-#       tear down 
-#***********************
-
-@app.teardown_request
-def shutdown_session(exception=None):
-    db.session.remove()
-
-
+# general functions.
 
 def base64_url_decode(inp):
     padding_factor = (4 - len(inp) % 4) % 4
@@ -338,6 +327,20 @@ def parse_signed_request(signed_request):
         # print "Valid data recieved!"
         return data
 
+
+def get_app_access_token():
+    url = "https://graph.facebook.com/oauth/access_token?"
+    url = url + "client_id=" + str(conf.APP_ID)
+    url = url + "&client_secret=" + conf.APP_SECRET
+    url = url + "&grant_type=client_credentials" 
+
+    data = urllib.urlopen(url).read()
+    
+    content = data.split('=')
+    conf.APP_ACCESS_TOKEN = content[1]
+
+        
+        
 def get_user_data(oauth_token):
     # print "starting get_user_data with token: ", oauth_token
     url = "https://graph.facebook.com/me"
@@ -378,6 +381,22 @@ def get_user_data(oauth_token):
         return data
     return None
 
+    
+
+def check_admin_status():
+    url = "https://graph.facebook.com/me/accounts"
+    url = url + "?access_token=" + session["access_token"]
+    url = url + "&method=get"
+    data = json.load(urllib.urlopen(url)).get('data')
+    for application in data:
+        if application.get('id') == conf.APP_ID:
+            return True
+
+    return False
+
+    
+    
+# Request functions.    
 
 def read_app_request(user_facebook_id, user_access_token):
 
@@ -414,6 +433,8 @@ def delete_app_request(request_id):
 
     print data
 
+    
+# Test user functions.
 
 def create_test_user(installed, full_name, permissions):
     print "creating test_user..."
@@ -446,27 +467,6 @@ def create_test_user(installed, full_name, permissions):
         db.session.commit()
     else:
         print "unable to create test_user", data
-
-
-def get_app_access_token():
-    url = "https://graph.facebook.com/oauth/access_token?"
-    url = url + "client_id=" + str(conf.APP_ID)
-    url = url + "&client_secret=" + conf.APP_SECRET
-    url = url + "&grant_type=client_credentials" 
-
-    data = urllib.urlopen(url).read()
-    
-    content = data.split('=')
-    # print content[1]
-
-    # print "app_access_token is now: ", data
-    # print "app_access_token is now: ", data
-    # print "app_access_token is now: ", data
-
-    # print data[1]
-    # print data.info()
-    # print data.getcode()
-    conf.APP_ACCESS_TOKEN = content[1]
 
 
 def access_all_test_users():
@@ -585,21 +585,7 @@ def friend_connection(test_user1, test_user2):
     response2 = json.load(urllib.urlopen(url2))
     print url2
     print "accepting friends request from " + test_user1.full_name
-    print "... acceptence was ", response2
-
-
-
-def check_admin_status():
-    url = "https://graph.facebook.com/me/accounts"
-    url = url + "?access_token=" + session["access_token"]
-    url = url + "&method=get"
-    data = json.load(urllib.urlopen(url)).get('data')
-    for application in data:
-        if application.get('id') == conf.APP_ID:
-            return True
-
-    return False
-    
+    print "... acceptence was ", response2    
 
 
 # *************************************
@@ -612,12 +598,11 @@ def check_admin_status():
 #       tear down
 #***********************
 
+# This ensures that we have a new session per request (important
+# for timers (thread issue).
 @app.teardown_request
 def shutdown_session(exception=None):
     db.session.remove()
-
-
-
 
 
 # Implemented but not used functions. Kept for future reference.
@@ -1325,9 +1310,13 @@ def show_instructions():
 
 @app.route('/show_game_list/', methods=['POST','GET'])
 def show_game_list():
-    
+    voted = Voted.query.filter_by(user_id = session['user_id']).all()
     return make_response(render_template('game_list.html'))
 
+    
+@app.route('/show_game/<game_id>')
+def show_game(game_id):
+    return make_response(render_template('error.html', message="you tried to access an unimplemented page!"))
 
 
 # is actually our old index, this one contains the game!
