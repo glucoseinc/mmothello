@@ -1,0 +1,45 @@
+.game_list {
+background: blue;
+height: 200px;
+margin: 10px;
+}
+
+.player_in_game {
+background: red;
+height: 200px;
+margin: 10px;
+
+}
+
+.lobby_chat {
+padding-top: 4em;
+background: orange;
+height: 300px;
+margin: 10px;
+}
+
+.player_in_lobby {
+background: purple;
+height: 300px;
+margin: 10px;
+}
+
+#currentGamesMultiSelect {
+    height: 150px;
+}
+
+#myGamesMultiSelect {
+    height: 200px;
+}
+
+#playersInMyGameContainer {
+top: 4 em;
+}
+
+
+#playersInMyGameMultiSelect {
+    padding-top: 4 em;
+    height: 200px;
+    width: 100px;
+    
+}

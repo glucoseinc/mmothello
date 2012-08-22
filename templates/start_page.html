@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div id="intro">
+  Welcome to our little world {{ name }} <br>
+  Because you are a {{ gender}} you have been choosen to save the world!<br>
+</div>
+<br>
+
+
+{% if not False %}
+
+<div id="guild">
+You don't seem to be part of a guild yet :/ <br>
+Lets create one! :) 
+<FORM METHOD="LINK" ACTION="{{ url_for('create_guild_page') }}">
+<input type="submit" value="Create Guild!" disabled="true">
+</form>
+</div>
+
+
+
+{% else %}
+
+
+<div id="guild">
+  Oh, you DO have a guild! Well... It is not implemented yet, so wait a little! :D
+</div>
+
+
+{% endif %}
+
+<br>
+<br>
+<br>
+
+<div id="games">
+  You could create a new game here: <br> 
+  <FORM METHOD="LINK" ACTION="{{ url_for('_create_new_board') }}">
+    <input type="submit" value="Create New Game!"> 
+    <br>
+    <br>
+    <br>
+    A list of existing games:
+       <table id="game_table">
+	 <tr>
+	   <td>Game ID</td>
+	   <td>Current Turn</td>
+	   <td>Play Game! </td>
+	 </tr>
+	 {% for board in boards %}
+	 <tr>
+	   <td>
+	     <b>{{ board.id }}</b>
+	   </td>
+	   <td>
+	     <b>{{ board.current_turn }}</b>
+	   </td>
+	   <td>  
+	     <a href="{{ url_for('show_game', id = board.id) }}"> Play! </a> 
+	   </td>
+	 </tr>
+	 {% endfor %}
+       </table>
+
+
+</div>
+
+
+{% endblock %}

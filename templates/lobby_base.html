@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='lobby_style.css') }}">
+
+{% endblock %}
+
+
+{% block body %}
+<div class="fluid-row">
+  <div class="span9">
+    <div class="game_list">
+      <form class="form-horizontal" id="currentGames">
+	<div class="control-group">
+	  <label class="control-label">
+	    Active Games
+	  </label>
+	  <div class="control">
+            <select multiple="multiple" id="currentGamesMultiSelect">
+              <option>something</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+	  </div>
+	</div>
+	
+	<div class="form-actions">
+          <button type="submit" class="btn btn-primary">Join Game</button>
+	  <FORM TYPE="LINK" ACTION="{{url_for('_create_new_board')}}">
+            <button type="submit" class="btn btn-primary">Create Game</button>
+	  </form>
+	</div>
+	
+      
+      </form>
+    </div> <!-- game_list -->
+  </div> <!-- /span9 -->
+  
+  <div class="span3">
+    <div class="player_in_game">
+      PLAYERS IN GAME:
+      
+    </div>
+  </div> <!-- /span3 -->
+</div> <!-- /row -->
+
+<div class="fluid-row">
+  
+  <div class="span9">
+    <div class="lobby_chat">
+      <form class="form-horizontal" id="myGames">
+        <div class="control-group">
+          <label class="control-label">
+            My current games
+          </label>
+          <div class="control">
+            <select multiple="multiple" id="myGamesMultiSelect">
+              <option>something</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+	
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Join Game</button>
+        </div>
+	
+	
+      </form>
+      
+    </div>
+  </div> <!-- /span9 -->
+
+  <div class="span3">
+    <div class="player_in_lobby">
+      LIST OF PLAYERS IN LOBBY
+      <div class="control" id="playersInMyGameContainer">
+        <select multiple="multiple" id="playersInMyGameMultiSelect">
+          <option>something</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      
+    </div>
+  </div> <!-- /span3 -->
+  
+  
+</div> <!-- /row -->
+{% endblock %}

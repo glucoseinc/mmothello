@@ -1,0 +1,2 @@
+<p> Welcome to Othello, a new MMO game! </p>
+<p> This game is about voting </p>

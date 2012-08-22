@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='redirect2.js')}}">
+  alert("trollolloll");
+</script>
+
+
+
+{% endblock %}
+
+
+{% block body %}
+    You havn't autherized the app yet! :D <br>
+    <br>
+    
+    You will be teleported to the location in... <div id="number"> FAIL </div>
+    <br> <br>
+    If you are impatient, click 
+    <a target="_top" href= {{ url }}>
+    <u> here... </u>
+    </a>
+
+    
+
+{% endblock %}

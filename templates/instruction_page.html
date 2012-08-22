@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='instructions.js')}}">
+</script>
+
+
+
+<link rel=stylesheet
+      type=text/css
+      href="{{ url_for('static', filename='instructions_style.css') }}">
+
+
+{% endblock %}
+
+{% block body %}
+
+<h1> Instructions </h1>
+
+<!--
+<div class="instruction_list_item"
+     id="how_to"> 
+  How to play
+</div>
+<div class="instruction_list_item_inactive"
+     id="point_system">
+  Point System
+</div>
+-->
+
+
+{% endblock %}

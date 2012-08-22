@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div id="test_user_description">
+  Here are the listed test_users:
+  <table>
+    <tr>
+      <td>Name UGLYHAXXOR</td>
+      <td>Installed?</td>
+      <td>Permissions</td>
+      <td> Link UGLYPADDING</td>
+      <td> Delete UGGLYPADDING</td>
+    </tr>
+  {% for test_user in data %}
+    <tr>
+      <td> {{ test_user.full_name }} </td>
+      <td> {{ test_user.installed }} </td>
+      <td> {{ test_user.permissions }} </td>
+      <td> <a href={{ test_user.login_url }}> Log in! </a> </td>
+      <td> <a href="{{ url_for('test_user_page') + (test_user.test_user_id) }}"> Del me! </a> </td>
+    </tr>
+  {%  endfor %}
+  </table>
+</div>
+
+
+<form action="{{ url_for('test_user_page') }}" method=post class=add-entry>
+  <dl>
+    <dt> Test User::
+      <dd>Installed? <input type=text size=30 name=installed>
+      <dd>Full Name: <input type=text size=30 name=full_name>
+      <dd>Permissions: <input type=text size=30 name=permissions>
+      <dd>Command:  <input type text size 30 name=command>
+      <dd><input type=submit value="Create Test-User">
+  </dl>
+</form>
+
+Available commands are:<br>
+<ul>
+  <li> create_all : creates a lot of pregenerated test_users </li>
+  <li> delete_all : deletes all test_users </li>
+  <li> setup_friends : makes every user friends with user 1 </li>
+</ul>
+
+{% endblock %}

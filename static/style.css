@@ -1,0 +1,151 @@
+.main {
+
+--background: rgba(255,100,100,0.2);
+width: 600px;
+margin-left: auto;
+margin-right: auto;
+padding: 0px;
+min-height: 550px;
+
+    --color: red;
+
+}
+
+#logo_button {
+    position: absolute;
+    top: 25px;
+    left: 100px;
+    height: 85px;
+    width: 190px;
+    --background-color: rgba(0,0,0,0.5);
+
+}
+
+#header {
+    align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#image_container {
+    margin-left: 40%;
+    height: 20px;
+    width: 20px;
+    background: url('/static/images/glucose_o.png');
+    background-size: 100%;
+    //float: left;
+    position:absolute;
+    top: 0.5em;
+    left: 2em;
+}
+
+#title_container {
+    //float: left;
+    //width: 10em;
+}
+
+h1 {
+    --margin-left: 1em;
+    --color: #377BA8;
+    text-align: center;
+}
+
+html {
+    overflow: hidden;
+    font-family: cursive;
+
+    --color: red;
+
+}
+
+
+html:hover {
+curser: wait;
+
+}
+
+
+
+body {
+    //text-align: center;
+    //overflow: hidden;
+
+    align: center;
+    font-family: cursive;
+    width: 700px;
+    height: 500px;
+    background-image: url('/static/images/bg_medium.png');
+    background-size: 102%;
+
+}
+
+div#fb-root { /* To remove stupid scroll bars but doen't work :( */
+    display:none;
+}
+
+
+.body {
+    
+    color: firebrick;
+
+    position: relative;
+    top: 80px;
+    font-family: cursive;
+    //background: #eee;
+    //width: 700px;
+    font-size: 20px;
+    --color: #0f0f0f;
+    height: 500px; 
+    overflow: hidden;
+    padding: 20px;
+    margin-top: 50px;
+    margin-left: 50px;
+    // background-image: url('/static/images/background.png');
+    // background-size: 100%;
+
+}
+
+.body:hover {
+cursor: default;
+}
+
+.footer {
+padding-left: 30px;
+text-decoration: overline;
+}
+
+ 
+div#help_button {
+    position: absolute;    
+    top: 50px;
+    left: 320px;
+    width: 75px;
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 25px;
+    z-index: 10;
+    background-image: url('/static/images/finish.png');
+    background-size: 100%;
+}
+
+div#help_area {
+    position:absolute;
+    width: 500px;
+    height: 435px;
+    padding: 20px;
+    margin-left: -20px;
+    margin-top: -35px;
+    z-index: 10;
+    background-color: rgba(250,250,250,1);
+}
+
+div#help_text {
+    font-size:13px;
+    width:400px;
+    height: 310px;
+    padding-top: 50px;
+    padding-left: 70px;
+    padding-right: 20px;
+    background-image: url('/static/images/finish.png');
+    background-size:100%;
+}

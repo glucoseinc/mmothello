@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div id="guild_create_description">
+  Here you can create your own Guild! Enter the guild name and press the Create Guild button! :)
+</div>
+
+
+<form action="{{ url_for('save_guild') }}" method=post class=add-entry>
+  <dl>
+    <dt> Guild Name: 
+      <dd><input type=text size=30 name=name>
+      <dd><input type=submit value="Create Guild">
+  </dl>
+</form>
+
+{% endblock %}

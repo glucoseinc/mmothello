@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div id="test_user_description">
+  Here are the listed test_users:
+  <table>
+    <tr>
+      <td>Board_ID</td>
+      <td>Current Turn</td>
+      <td>End Voting Phase</td>
+      <td> Delete Board</td>
+    </tr>
+  {% for board in boards %}
+    <tr>
+      <td> {{ board.id }} </td>
+      <td> {{ board.current_turn }} </td>
+      <td> <a href="{{url_for('end_vote',board_id = board.id) }}"> End Voting </a> </td>
+      <td> <a href="{{ url_for('delete_board',board_id=board.id) }}"> Del me! </a> </td>
+    </tr>
+  {%  endfor %}
+  </table>
+</div>
+
+
+<form action="{{ url_for('test_user_page') }}" method=post class=add-entry>
+  <dl>
+    <dt> Test User::
+      <dd>Installed? <input type=text size=30 name=installed>
+      <dd>Full Name: <input type=text size=30 name=full_name>
+      <dd>Permissions: <input type=text size=30 name=permissions>
+      <dd>Command:  <input type text size 30 name=command>
+      <dd><input type=submit value="Create Test-User">
+  </dl>
+</form>
+
+Available commands are:<br>
+<ul>
+  <li> create_all : creates a lot of pregenerated test_users </li>
+  <li> delete_all : deletes all test_users </li>
+  <li> setup_friends : makes every user friends with user 1 </li>
+</ul>
+
+{% endblock %}

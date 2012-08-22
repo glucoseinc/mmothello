@@ -1,0 +1,96 @@
+/* instruction page related CSS */
+
+div.instruction_page  {
+position:absolute;
+width: 400px;
+height: 400px;
+--background-color: rgba(255,0,0,0.2);
+padding: 10px;
+margin-left: 35px;
+}
+
+
+div#content_container {
+    --background-color: rgba(0,0,255,0.2);
+}
+
+div#content_text {
+    margin-left:10px;
+    margin-right:10px;
+    width: 380px;
+    height: 360px;
+    --background-color: rgba(255,255,255,0.3);
+    overflow:scroll;
+    overflow-x:hidden;
+    --overflow-y:hidden;
+}
+
+h3 {
+font-size: 15px;
+}
+
+p {
+font-size: 12px;
+}
+
+div#back_button {
+    position:absolute;
+    top: 90%;
+    left: 85%;
+    text-decoration:underline;
+}
+
+/* instruction list item elated CSS */
+
+
+
+div.instruction_list_item_inactive {
+position: absolute;
+left: 20%;
+margin-left: -50px;
+margin-top: -80px;
+padding-left: 20px;
+width: 260px;
+padding-top: 25px;
+height: 45px;
+color: rgb(150,150,150);
+--background-color: rgba(240,240,240,0.7);
+--background-image: url('/static/finish.png');
+--background-size: 100%;
+text-decoration:underline;
+}
+
+
+
+div.instruction_list_item {
+position: absolute;
+left: 20%;
+margin-left: -50px;
+margin-top: -80px;
+padding-left: 20px;
+width: 260px;
+padding-top: 25px;
+height: 45px;
+--color: rgb(150,150,150);
+--background-color: rgba(240,240,240,0.7);
+--background-image: url('/static/finish.png');
+--background-size: 100%;
+text-decoration:underline;
+}
+
+
+div#how_to {
+top:100px;
+}
+
+div#point_system {
+top:150px;
+}
+
+div#beta_tester {
+top:200px;
+}
+
+div#back_to_menu {
+top:400px;
+}

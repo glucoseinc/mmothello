@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+
+<link rel=stylesheet 
+      type=text/css 
+      href="{{ url_for('static', filename='game_style.css') }}">
+
+<script type="text/javascript">
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='underscore.js')}}">
+</script>
+
+
+<script type="text/javascript" 
+	src="{{ url_for('static', filename='othello.js')}}">
+</script>
+
+
+
+
+{% endblock %}
+
+
+{% block body %}
+<div id="user_score_keeper">
+  <u>Score</u> <br>
+  <br>
+  Round: <br>
+  <div id="user_round_score">
+    5
+  </div><br>
+  Total:<br>
+  <div id="user_total_score">
+    50
+  </div>
+</div>
+ Welcome, {{ name }}! 
+<div id="welcome_message">
+  {% if turn %}
+    It is currently the opposing team's turn! Template
+  {% elif voted %}
+    It is now your turn, please click one of the marked tiles to vote! Template
+  {% elif not voted %}
+    You have already voted, please come back later! Template
+  {% else %}
+    You have already voted, please come back later! Template
+  {% endif %}
+</div>
+<!--
+<div id="help_button"> HELP! </div>
+<div id="help_area"> 
+  <div id="help_text"> 
+    HELP TEXT!
+  </div>
+</div>
+-->
+<div id="table_container">
+  <table border="0px" align="center" class="board">
+    <tr>
+      <td>
+	<div id="loading_screen">
+	  <img src="{{url_for('static', filename='ajax-loader.gif')}}">
+	</DIV>
+	<div id="menu_container">
+	  <div class="span12">
+	    <div id="menu"></div>
+	  </div>
+	  <div class="span12">
+	    <div id="menu_line"></div>
+	  </div>
+	</div>
+	<div id="board_background">
+	  
+	  <div id="board"></div>
+	</div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+	<div class="span4">
+	  <div id="score"></div>
+	</div>
+	<div class="span4">
+	  <div id="red_turn_keeper" class="turn_keeper">
+	    
+	    <div class="span6">
+	      Turn: 
+	    </div>
+	    <div class="span6">
+	      <div id="red_image"></div>
+	    </div>
+	  </div>
+	  <div id="blue_turn_keeper" class="turn_keeper">
+	    <div class="span6">
+	      Turn:
+	    </div>
+	    <div class="span6">
+	      <div id="blue_image"></div>
+	    </div>
+	  </div>
+	</div>
+	<div class="span4">
+	  <div id="timer"> TIMER!!!!! </div>
+	</div>
+      </td>
+    </tr>
+    <!--  <tr>
+	  <td>
+	    <FORM type="LINK" action="{{url_for('send_request')}}">
+	      <input type="submit" value="Send Request to me!">
+	    </form>
+    </tr> -->
+  </table>
+</div> <!-- table_container -->
+{% endblock %}

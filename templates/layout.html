@@ -1,0 +1,28 @@
+<!doctype html>
+<title>Glucose no Othello!</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='json.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='boardmanager.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='underscore.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='othello.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='guildmanager.js') }}"></script>
+
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+
+<div class=page>
+  <h1>Othello</h1>
+  <div class=metanav>
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}
+  {% endblock %}
+</div>

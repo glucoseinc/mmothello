@@ -1,0 +1,63 @@
+0;136;0c{% extends "layout.html" %}
+
+{% block body %}
+
+<h1> YOU ARE AN ADMIN!</h1>
+
+<div id="intro">
+  Welcome to our little world {{ name }} <br>
+  You are an ADMIN, and therefor don't even need to save the world ;D<br>
+</div>
+<br>
+
+
+{% if not False %}
+
+<div id="guild">
+You don't seem to be part of a guild yet :/ <br>
+Lets create one! :) 
+<FORM METHOD="LINK" ACTION="{{ url_for('create_guild_page') }}">
+<input type="submit" value="Create Guild!">
+</form>
+</div>
+
+
+
+{% else %}
+
+
+<div id="guild">
+  Oh, you DO have a guild! Well... It is not implemented yet, so wait a little! :D
+</div>
+
+
+{% endif %}
+
+<br>
+<br>
+<br>
+
+<div id="games">
+You could create a game here: 
+<a href="{{ url_for('_create_new_board') }}"> Click here! </a> <br>
+     <br>
+     <br>
+     A list of existing games:
+       <ul>
+	 {% for board in boards %}
+	   <li>  <a href="{{ url_for('show_game', id = board.id) }}"> Click here! </a> </li>
+	 {% endfor %}
+       </ul>
+
+
+</div>
+
+<div id="admin">
+These are the admin functions! <br>
+<ul>
+  <li> <a href="{{ url_for('test_user_page')}}"> Test User Page </a> </li>
+  <li> <a href="{{url_for('board_management')}}"> Board Management </a> </li> 
+</ul>
+
+
+{% endblock %}

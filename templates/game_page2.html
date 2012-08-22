@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+
+<link rel=stylesheet 
+      type=text/css 
+      href="{{ url_for('static', filename='game_style2.css') }}">
+
+<script type="text/javascript">
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='underscore.js')}}">
+</script>
+
+
+
+<script type="text/javascript" 
+	src="{{ url_for('static', filename='othello.js')}}">
+</script>
+
+
+{% endblock %}
+
+
+{% block body %}
+<table id="game_page_holder">
+<tr>
+  <td colspan="2">
+    <div id="welcome_name" class="upper_space_holder">
+      Welcome, {{ name }}!
+    </div>
+  </td>
+  <td colspan="1">
+    <div id="add_friend_button" class="upper_space_holder">
+      Add Friend
+    </div>
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    <div id="welcome_message" class="upper_space_holder">
+      {% if turn %}
+      It is currently the opposing team's turn! Template
+      {% elif voted %}
+      It is now your turn, please click one of the marked tiles to vote! Template
+      {% elif not voted %}
+      You have already voted, please come back later! Template
+      {% else %}
+      You have already voted, please come back later! Template
+      {% endif %}
+    </div>
+  </td>
+  
+  <td colspan="1">
+    <div id="add_friend_button" class="upper_space_holder left_space_holder">
+      Add Friend
+    </div>
+  </td>
+
+</tr>
+
+<tr>
+
+  <td colspan="2">
+    <!-- board -->
+    <div id="board_background" class="board_outer_container">
+      <div id="board"> </div>
+    </div>
+
+    <!-- loading screen
+	 lies on top of board_background with z-index -->
+    <div id="loading_screen" class="board_outer_container">
+      <img src="{{url_for('static', filename='ajax-loader.gif')}}">
+    </div>
+
+    <!-- menu
+	 -->
+    <div id="menu_container" class="board_outer_container">
+      <div id="menu"> </div>
+      <div id="menu_line"> </div>
+
+    </div>
+
+  </td>
+
+
+  <td>
+    
+    <div id="user_score_keeper" class="middle_space_holder left_space_holder">
+      <u>Score</u> <br>
+      <br>
+      Round: <br>
+      <div id="user_round_score">
+	..
+      </div><br>
+      Total:<br>
+      <div id="user_total_score">
+	..
+      </div>
+    </div>
+
+    <div id="fever_meter_keeper" class="middle_space_holder left_space_holder">
+      
+      <div id="self_meter_title">
+	Self:
+      </div>
+
+      <div id="opponent_meter_title">
+	Enemy:
+      </div>
+
+      <div id="self_team_meter" class="fever_meter">
+	<div id="self_team_bar" class="fever_bar">
+	</div>
+      </div>
+
+
+      <div id="opponent_team_meter" class="fever_meter">
+        <div id="opponent_team_bar" class="fever_bar">
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+  </td>
+</tr>
+
+<tr>
+
+  <td>
+
+    <div class="lower_space_holder" id="game_score_keeper">
+      <div class="game_score_box" id="red_game_score"> 0R </div>
+      <div class="game_score_box" id="blue_game_score"> 0
+B </div>
+    </div>
+    
+
+  </td>
+  <td>
+    <div class="lower_space_holder">
+      <div id="red_turn_keeper" class="turn_keeper">
+	<div id="turn_text">
+	  TURN:
+	</div>
+	<div id="red_image"></div>
+      </div>
+      <div id="blue_turn_keeper" class="turn_keeper">
+        <div id="turn_text">
+          TURN:
+        </div>
+        <div id="blue_image"> </div>
+      </div>
+
+    </div>
+  </td>
+
+  <td>
+    <div id="timer" class="lower_space_holder left_space_holder">
+      TIMER!!!
+    </div>
+  </td>
+
+</tr>
+
+</table>
+{% endblock %}

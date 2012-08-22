@@ -1,0 +1,202 @@
+table#board {
+  // height: 340px;
+ //  width: 340px;
+//   align: center;
+//   margin-top: 100px;
+//   padding-top: 100px;
+}
+
+
+#user_score_keeper {
+    position:absolute;
+    top: 20%;
+    left: 85%;
+    margin-left:0px;
+    margin-right:0px;
+    padding:5px;
+    text-align: center;
+
+    height: 130px;
+    width: 70px;
+    // background-color: rgba(99,55,55,0.5);
+}
+
+
+#welcome_message {
+height: 50px;
+width: 400px;
+//background-color: rgba(55,55,55,0.5);
+
+}
+
+#table_container {
+    position:absolute;
+    left: -30px;
+}
+
+
+table {
+  height: 315px;
+  width: 315px;
+  align: center;
+  table-layout: fixed;
+}
+
+
+td {
+  height: 15px;
+  width: 15px;
+  text-align: center;
+  vertialign: middle;
+  font-weight: bold;
+  font-family: geniva, verdana, helvetica;
+  border: 0px solid gold;
+  font-size: 13px;
+}
+
+td.boardcell {
+    height: 10px;
+    width: 10px;
+    font-size: 2px;
+    border: 0px solid black;
+    // background: lightgreen;
+    // background-image: url('/static/empty_tile.jpg');
+    background-size: 200%;
+    
+}
+
+div#welcome_message {
+
+}
+
+
+div#timer {
+    position:absolute;
+    top:350px;
+    left:360px;
+}
+
+
+
+div#menu_container {
+height: 313px;
+width: 312px;
+background-color:#ffffff;
+background-color:rgba(250,250,250,0.7);
+position:absolute;
+top:50%;
+left:50%;
+z-index:4;
+margin-top:-190px;
+margin-left:-150px;
+}
+
+div#menu {
+    font-family:cursive;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin-top:-100px;
+    margin-left:-100px;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    opacity:1.0;
+    z-index:5;
+    height:100px;
+    width:160px;
+    //background-color:rgba(255,255,255,1.0);
+}
+
+div#menu_line {
+    position: absolute;
+    
+    top: 50%;
+    left: 50%;
+    margin-top:30px;
+    margin-left:-80px;
+
+    height: 18px;
+    width:190px;
+    z-index:2000;
+    //background-color:#ff0000;
+    background-image:url('/static/line.png');
+    background-size: 100%;
+
+
+}
+
+div#loading_screen {
+position:absolute;
+top:40%;
+left:45%;
+z-index:5;
+}
+
+div#board_background {
+    width: 500px;
+    height: 350px;
+    background-image: url('/static/board_background.png');
+    background-size: 100%;
+
+}
+
+div#board {
+position:relative;
+top:24px;
+left:15px;
+z-index:1;
+width:410px;
+height:410px;
+margin-left: 40px;
+// margin-top: 1000px; // adjusts the height off the background image
+// padding-top: 2000px; // adjusts the height of teh actualy board
+}
+
+div.turn_keeper {
+    position:absolute;
+    top: 350px;
+    left:200px;
+    font-family: cursive;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 25px;
+}
+
+
+div#red_image {
+    margin-left:0px;
+    height: 50px;
+    width: 50px;
+
+    //background-color:#FF0000;
+    background-image: url('/static/red.png');
+    background-size:150%;
+
+}
+
+div#blue_image {
+    margin-left:5px;
+    height: 50px;
+    width: 50px;
+    background-color:#0000FF;
+    background-image:url('/static/blue.png');
+    background-size: 150%;
+}
+
+
+div#score {
+    font-size: 20px;
+    font-family: cursive;
+    padding-top: 25px;
+    margin-left:5px;
+    position: absolute;
+    top: 300px;
+    left: -20px;
+    z-index:5;
+
+    height: 75px;
+    width: 180px;
+    background-image:url('/static/score_with_dog.png');
+    background-size:100%;
+}

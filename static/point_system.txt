@@ -1,0 +1,86 @@
+<h3> Point System Explaination </h3>
+<p> This is a first draft version of the point system, ideas of how the system will evolve are below. </p>
+<p> In this MMO Othello-game, you are rewarded points if your vote was the most successful one. If your vote was the one that passed through, you get as many points as there were votes in the game.</p>
+
+<p> Winning and loosing a game will also effect how your total points grow. At the end of the match, depending on if you won or lost the game, your total score is modified by your game-score multiplied by a factor depending on how the game fared. Be ware that loosing too heavily will give you a penalty!</p>
+
+<p> Currently points are awarded the following way:
+
+
+
+<table border="1">
+  <tr>
+  <b>
+    <td>      
+      Game outcome in %
+    </td>
+    <td>
+      Point multiplication factor
+    </td>
+  </b>
+  </tr>
+  <tr>
+    <td>
+      0-100
+    </td>
+    <td>
+      -50%
+    </td>
+  </tr>
+  <tr>
+    <td>
+      25-75
+    </td>
+    <td>
+      0%
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      50-50
+    </td>
+    <td>
+      50%
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      75-25
+    </td>
+    <td>
+      100%
+    </td>
+  </tr>
+  <tr>
+    <td>
+      100-0
+    </td>
+    <td>
+      150%
+    </td>
+  </tr>
+      
+</table>
+
+</p>
+
+<p>
+Future potential developments:
+<ul>
+  <li>
+    A collective pot teamwise that when high enough, will lead into a Frenzy Mode.
+  </li>
+  <li>
+    A rating system that is based on how accurate each person is on their voting.
+  </li>
+  <li>
+    A rating system to see how many wins and what sychronization rate each "team" has.
+  </li>
+</ul>
+<br>
+<br>
+Feel free to come with your own suggestions!
+
+</p>

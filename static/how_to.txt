@@ -1,0 +1,13 @@
+<h3> How to play the game </h3>
+
+<p> In this MMO Othello game, each player is prompted to select a team when first entering a game. If a certain team has too many members, that team will be un-pickable. In the current version of the game there are only two teams.
+</p>
+
+<p>
+Each team plays a turn by having all of its members voting for what move to make, and at the end of the timer (or when all have voted), the mark is placed. The players who voted for the winning vote will then get points based on how many people voted for that piece. At the end of the game, a fraction of these points will be awarded to the players based on the outcome of the game. Be warned, loosing too heavily will give a penalty.
+</p>
+
+<p>
+In current version of the game, it is not possible to view the "permanent points", but they are there (just trust us on this one :D).
+</p>
+

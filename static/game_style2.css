@@ -1,0 +1,292 @@
+table#game_page_holder {
+    height: 450px;
+    width: 450px;
+    margin-top: -20px;
+}
+
+div.upper_space_holder {
+    width: 500px;
+    height: 20px;
+}
+
+div.middle_space_holder {
+    width: 100px;
+    height: 300px;
+    --background-color: rgba(128,55,55,0.5);
+}
+
+div.left_space_holder {
+    margin-left: -160px;
+}
+
+
+div.lower_space_holder {
+    margin-top: -20px;
+}
+
+
+/* Board related css */
+
+board#board_table {
+--z-index:1;
+board-layout: fixed;
+--width: 400px;
+--height: 400px;
+}
+
+div.board_outer_container {
+    width: 420px;
+    height: 340px;
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 27px;
+    margin-left: -50px;
+    margin-top: 20px;
+}
+
+div#board_background {
+    --background-color: rgba(55,55,55,0.5);
+    background-image: url('/static/images/board_background.png');
+    background-size: 100%;
+
+}
+
+
+td {
+  text-align: left;
+  vertialign: middle;
+  font-weight: bold;
+  --font-family: cursive, geniva, verdana, helvetica;
+  --border: 1px solid gold;
+}
+
+
+
+td.boardcell {
+    height: 37px;
+    width: 37px;
+    font-size: 2px;
+    border: 0px solid black;
+    // background: lightgreen;
+    // background-image: url('/static/images/empty_tile.jpg');
+    background-size: 190%;
+}
+
+/* end board related css */
+
+
+#user_score_keeper {;
+    text-align: center;
+    margin-top: -100px;
+    height: 130px;
+    width: 70px;
+    // background-color: rgba(99,55,55,0.5);
+}
+
+
+
+#welcome_message {
+//background-color: rgba(55,55,55,0.5);
+padding-right: 25px;
+}
+
+#add_friend_button {
+padding: 5px;
+border: 1px solid black;
+}
+
+#table_container {
+}
+
+
+table {
+  --align: center;
+}
+
+
+div#welcome_message {
+
+}
+
+
+div#timer {
+}
+
+
+
+div#menu_container {
+background-color:#ffffff;
+background-color:rgba(250,250,250,0.7);
+}
+
+div#menu {
+    --font-family:cursive;
+    opacity:1.0;
+    z-index:5;
+    height:100px;
+    width:160px;
+    //background-color:rgba(255,255,255,1.0);
+}
+
+div#menu_line {
+    //background-color:#ff0000;
+    background-image:url('/static/images/line.png');
+    background-size: 100%;
+
+
+}
+
+div#loading_screen {
+    position: absolute;
+    --background-color: rgb(250,250,250);
+    margin-left: 120px;
+    margin-top: -280px;
+}
+
+div.turn_keeper {
+    margin-left: 30px;
+    margin-top: -50px;
+    height: 30px;
+    width: 300px;
+    --font-family: cursive;
+    font-size: 20px;
+    --background-color: rgba(125,00,125,0.5);
+    --float:left;
+}
+
+
+div#red_image {
+    margin-left: 70px;
+    margin-top: -17px;
+    height: 25px;
+    width: 25px;
+    //background-color:#FF0000;
+    background-image: url('/static/images/red.png');
+    background-size:200%;
+}
+
+div#blue_image {
+    margin-left: 70px;
+    margin-top: -17px;
+    height: 25px;
+    width: 25px;
+    --background-color:#0000FF;
+    background-image:url('/static/images/blue.png');
+    background-size: 200%;
+}
+
+
+div#game_score_keeper {
+    margin-top: -65px;
+    margin-left: -20px;
+    height: 110px;
+    width: 200px;
+    --background-color: rgb(155,155,155);
+    --background-color: rgba(155,155,155,0.5);
+    background-image:url('/static/images/score_with_dog.png');
+    background-size:100%;
+}
+
+div.game_score_box {
+    position:absolute;
+    margin-top: -400px;
+    margin-left: 90px;
+    height: 20px;
+    width: 20px;
+}
+
+div#red_game_score {
+    margin-top: 35px;
+}
+
+div#blue_game_score {
+    margin-top: 62px;
+}
+
+
+
+div#fever_meter_keeper {
+--border: 1px black solid;
+height: 300px;
+width: 100px;
+--background: rgba(255,0,0,0.5);
+font-size: 15px;
+padding-left: 20px;
+}
+
+div.fever_meter {
+    position: absolute;
+    height:242px;
+    width: 18px;
+    --border: 1px goldenrod solid;
+    margin-top: 40px;
+    
+    background-image: url("/static/images/border.png");
+    background-size: 100%;
+    z-index:1;
+}
+
+
+div#self_meter_title {
+position:absolute;
+}
+
+div#self_team_meter {
+margin-left: 10px;    
+}
+
+div.fever_bar {
+    position:absolute;
+
+    --background: rgba(0,255,0,0.6);
+    --border-left: 1px black solid;
+    --border-right: 1px black solid;
+    --border-bottom: 1px black solid;
+    width:11px;
+    margin-left:3px;
+
+    background-image: url("/static/images/fever_bar_white2.png");
+    background-size: 100%;
+    z-index:-1;
+}
+
+div#self_team_bar {
+   -- position:absolute;
+    --background: rgba(0,255,0,0.6);
+    --border-left: 1px black solid;
+    --border-right: 1px black solid;
+    --border-bottom: 1px black solid;
+    --width:6px;
+    --margin-left:2px;
+    --height: 50px;
+    --margin-top:200px;
+    --background-image: url("/static/images/fever_bar_white2.png");
+    --background-size: 100%;
+    --z-index:-1;
+}
+
+
+div#opponent_meter_title {
+position:absolute;
+margin-left: 60px;
+}
+
+div#opponent_team_meter {
+margin-left: 60px;
+}
+
+div#opponent_team_bar {
+    --position:absolute;
+    --background: rgba(0,0,255,0.6);
+    --border-left: 1px red solid;
+    --border-right: 1px red solid;
+    --border-bottom: 1px black solid;
+    --width:6px;
+    --margin-left:2px;
+    --margin-top: 50px;
+    --height:200px;
+    --background-image: url('/static/images/fever_bar_white.png');
+    --background-size: 100%;
+    --z-index:-1;
+
+}

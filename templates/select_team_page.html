@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<script type="text/javascript">
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='team_select.js')}}">
+</script>
+
+<link rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='team_select_style.css') }}">
+
+
+{% endblock %}
+
+
+
+{% block body %}
+<p> Welcome to MMOthello, {{ name}}! </p>
+<br>
+<br>
+<p>Please pick a side! :)</p>
+
+{% if team == "both" %}
+
+<div id="blue_picker" class="team_picker"> BLUE PICKER! </div>
+<div id="red_picker" class="team_picker"> RED PICKER! </div>
+
+{% elif team == "blue" %}
+<br>
+<br>
+
+
+<div id="no_pick" style="top:120px">
+  Unfortunatily, there are too few blue players, so the red team is not choosable :(
+</div>
+<div id="blue_picker" class="team_picker"> I'll be blue! </div>
+
+{% elif team == "red" %}
+
+<div id="no_pick" style="top:300px">
+  Unfortunatily, there are too few red players, so the blue team is not choosable :(
+</div>
+
+<div id="red_picker" class="team_picker"> I'll be Red! </div>
+
+
+{% else %}
+
+Somehow... Neither team have space... This is a bug, so you should probably contact Ikshu now! :D
+
+{% endif %}
+
+{% endblock %}

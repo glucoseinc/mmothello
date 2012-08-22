@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script type="text/javascript"
+        src="{{ url_for('static', filename='index.js')}}">
+</script>
+
+
+
+<link rel=stylesheet
+      type=text/css
+      href="{{ url_for('static', filename='index_style.css') }}">
+
+
+{% endblock %}
+
+
+{% block body %}
+
+<p> You can always click on the logo to return to this page! </p>
+
+<div id="game_button" class="menu_button"> Current Game </div>
+
+<div id="high_score_button" class="menu_button_inactive"> High Score </div>
+
+<div id="achievements_button" class="menu_button_inactive"> Achievements </div>
+
+<div id="instructions_button" class="menu_button"> Instructions </div>
+
+<div id="invite_friend_button" class="menu_button_inactive"> Challenge</div>
+
+{% endblock %}

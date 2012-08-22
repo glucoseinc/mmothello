@@ -1,0 +1,28 @@
+div.team_picker {
+font-size:20px;
+position: absolute;
+width: 350px;
+height: 100px;
+padding-left: 50px;
+padding-top: 65px;
+background-image: url('/static/images/finish.png');
+background-size: 100%;
+left: 50px;
+}
+
+
+div#red_picker {
+top: 120px;
+--background-color: rgba(255,0,0,0.5);
+}
+
+div#blue_picker {
+top: 300px;
+--background-color: rgba(0,0,255,0.5);
+}
+
+div#no_pick {
+position: absolute;
+padding: 50px;
+}
+
